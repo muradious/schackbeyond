@@ -7,8 +7,8 @@
     <ProjectGuid>{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Beyond.foundation.TrelloProvider</RootNamespace>
-    <AssemblyName>Beyond.foundation.TrelloProvider</AssemblyName>
+    <RootNamespace>Beyond.feature.TrelloProvider</RootNamespace>
+    <AssemblyName>Beyond.feature.TrelloProvider</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -34,6 +34,9 @@
     <Reference Include="Sitecore.DataExchange">
       <HintPath>..\..\..\..\lib\Sitecore.DataExchange.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.DataExchange.DataAccess">
+      <HintPath>..\..\..\..\lib\Sitecore.DataExchange.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.DataExchange.Local">
       <HintPath>..\..\..\..\lib\Sitecore.DataExchange.Local.dll</HintPath>
     </Reference>
@@ -51,15 +54,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Converters\DataAccess\ValueAccessors\CardNameValueAccessorConverter.cs" />
+    <Compile Include="Converters\DataAccess\ValueAccessors\CardIDValueAccessorConverter.cs" />
     <Compile Include="Converters\Endpoints\TrelloEndpointConverter.cs" />
-    <Compile Include="Converters\PipelineSteps\GetListsFromTrelloStepConverter.cs" />
     <Compile Include="Converters\PipelineSteps\GetCardsFromTrelloStepConverter.cs" />
     <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Models\ItemModels\DataAccess\ListValueAccessorItemModel.cs" />
     <Compile Include="Models\ItemModels\Endpoints\TrelloEndpointItemModel.cs" />
-    <Compile Include="Models\ItemModels\GetListsFromTrelloStepItemModel.cs" />
     <Compile Include="Models\ItemModels\GetCardsFromTrelloStepItemModel.cs" />
     <Compile Include="Plugins\TrelloEndpointSettings.cs" />
-    <Compile Include="Processors\PipelineSteps\GetListsFromTrelloSetProcessor.cs" />
     <Compile Include="Processors\PipelineSteps\GetCardsFromTrelloSetProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,6 +71,9 @@
       <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
       <Name>TrelloConnector</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\DataAccess\ValueReader\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

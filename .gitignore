@@ -59,3 +59,8 @@ packages/
 *.dll
 */obj/
 src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/bin/Debug/Beyond.foundation.TrelloProvider.dll
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/bin/Debug/Beyond.foundation.TrelloProvider.dll
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/bin/Debug/Beyond.foundation.TrelloProvider.pdb
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/obj/Debug/Beyond.foundation.TrelloProvider.dll
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/obj/Debug/Beyond.foundation.TrelloProvider.pdb
+src/project/Website/code/Properties/PublishProfiles/PublishSite.pubxml.user
