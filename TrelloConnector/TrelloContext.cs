@@ -11,6 +11,9 @@ namespace TrelloConnector
 	{
 		private ITrello _trello;
 
+        private Sitecore.Data.Database master = Sitecore.Configuration.Factory.GetDatabase("master");
+        private Sitecore.Data.ID trelloConfig = new Sitecore.Data.ID("{6A175091-968F-4E73-B5DD-AF66C99FA029}");
+
 		/// <summary>
 		/// Retrieve All Cards from a certain list in a predefined board
 		/// </summary>
@@ -21,7 +24,7 @@ namespace TrelloConnector
 			List<ICard> result = new List<ICard>();
 			try
 			{
-				_trello = new Trello(searchModel.ApiKey);
+                _trello = new Trello(searchModel.ApiKey);
 				_trello.Authorize(searchModel.Token);
 				Board mainBoard = _trello.Boards.ForMe().DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.BoardName);
 				TrelloNet.List toDoList = _trello.Lists.ForBoard(mainBoard).DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.ToDoListName);
@@ -34,7 +37,9 @@ namespace TrelloConnector
 			return result;
 		}
 
-		private List<ICard> GetCards(IEnumerable<TrelloNet.Card> cards)
+        
+
+        private List<ICard> GetCards(IEnumerable<TrelloNet.Card> cards)
 		{
 			List<ICard> result = new List<ICard>();
 			try
@@ -77,8 +82,8 @@ namespace TrelloConnector
 		{
 			try
 			{
-				_trello = new Trello(searchModel.ApiKey);
-				_trello.Authorize(searchModel.Token);
+				_trello = new Trello(searchModel.ApiKey); //GetTrelloItem();
+                _trello.Authorize(searchModel.Token);
 
 				Board mainBoard = _trello.Boards.ForMe()?.FirstOrDefault(x => x.Name == searchModel.BoardName);
 
@@ -93,5 +98,29 @@ namespace TrelloConnector
 			}
 		}
 
-	}
+        public void SetCardAsDone(string cardID)
+        {
+            try
+            {
+                Sitecore.Data.Items.Item trelloConfigItem = master.GetItem(trelloConfig);
+                Sitecore.Data.Fields.TextField apiKey = trelloConfigItem.Fields["App Key"];
+                Sitecore.Data.Fields.TextField token = trelloConfigItem.Fields["Auth Token"];
+                Sitecore.Data.Fields.TextField board = trelloConfigItem.Fields["Board Name"];
+                Sitecore.Data.Fields.TextField doneListName = trelloConfigItem.Fields["Done List Name"];
+
+                _trello = new Trello(apiKey.Value);
+                _trello.Authorize(token.Value);
+                Board mainBoard = _trello.Boards.ForMe()?.FirstOrDefault(x => x.Name == board.Value);
+
+                TrelloNet.List doneList = _trello.Lists.ForBoard(mainBoard)?.FirstOrDefault(x => x.Name == doneListName.Value);
+                TrelloNet.Card targetCard = _trello.Cards.WithId(cardID);
+
+                _trello.Cards.Move(targetCard, doneList);
+            }
+            catch (Exception ex)
+            {
+                Sitecore.Diagnostics.Log.Error("Error setting Trello card as done Details:\n" + ex.Message, ex);
+            }
+        }
+    }
 }
