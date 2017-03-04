@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B06F05D9-CAC8-4DBD-9170-7DC7874929D2}</ProjectGuid>
+    <ProjectGuid>{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>scHackBeyond</RootNamespace>
-    <AssemblyName>scHackBeyond</AssemblyName>
+    <RootNamespace>Beyond.feature.TrelloInbox</RootNamespace>
+    <AssemblyName>Beyond.feature.TrelloInbox</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,22 +49,31 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\..\..\..\lib\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Mvc">
+      <HintPath>..\..\..\..\lib\Sitecore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -84,27 +94,31 @@
     <Reference Include="Microsoft.Web.Infrastructure">
       <HintPath>..\..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <None Include="Global.asax" />
+    <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Inbox.js" />
+    <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Inbox.test.js" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Constants\DBNames.cs" />
+    <Compile Include="Constants\FieldsNames.cs" />
+    <Compile Include="Constants\IDs.cs" />
+    <Compile Include="Constants\TemplatesIDs.cs" />
+    <Compile Include="Controllers\TrelloController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TrelloCardItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\jquery.blockUI.js" />
     <Content Include="Views\web.config" />
-    <Content Include="App_Config\ConnectionStrings.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <None Include="Properties\PublishProfiles\PublishSite.pubxml" />
+    <Content Include="packages.config" />
+    <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Inbox.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,23 +127,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Config\Include\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\TrelloConnector\Beyond.foundation.TrelloConnector.csproj">
-      <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
-      <Name>TrelloConnector</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.feature.TrelloProvider.csproj">
-      <Project>{4721ffe1-bec2-4a59-8830-b0df3501d37a}</Project>
-      <Name>Beyond.feature.TrelloProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\foundation\SitecoreExtensions\Beyond.foundation.SitecoreExtensions\Beyond.foundation.SitecoreExtensions.csproj">
-      <Project>{91c08408-e7b1-4aa5-b3b8-a7cc8b823a24}</Project>
-      <Name>Beyond.foundation.SitecoreExtensions</Name>
-    </ProjectReference>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -144,9 +143,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50823</DevelopmentServerPort>
+          <DevelopmentServerPort>3527</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50823/</IISUrl>
+          <IISUrl>http://localhost:3527/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

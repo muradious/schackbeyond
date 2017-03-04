@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{40695638-2CA3-4A01-85A1-FE4CF2169BF5}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.TrelloConnector", "TrelloConnector\Beyond.foundation.TrelloConnector.csproj", "{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.feature.TrelloProvider", "src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.feature.TrelloProvider.csproj", "{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.feature.TrelloInbox", "src\feature\Beyond.feature.TrelloInbox\code\Beyond.feature.TrelloInbox.csproj", "{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
 		{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
 		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A} = {74CD6839-1D22-4FBB-B3DF-E39C7902F2C3}
+		{F6B5C985-5E8E-4F02-90DA-AD68FEA16E28} = {74CD6839-1D22-4FBB-B3DF-E39C7902F2C3}
 	EndGlobalSection
 EndGlobal

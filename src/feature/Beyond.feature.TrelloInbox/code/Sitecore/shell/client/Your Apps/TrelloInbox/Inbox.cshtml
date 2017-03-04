@@ -1,0 +1,60 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Web.UI.Controls.Common.UserControls
+@model RenderingModel
+@{
+    var rendering = Html.Sitecore().Controls().GetUserControl(Model.Rendering);
+    rendering.Class = "sc-listcontrol sc-SitecoreJobs";
+    rendering.Requires.Script("client", "Inbox.js");
+
+
+    rendering.GetString("InboxParam", "InboxParam");
+    var htmlAttributes = rendering.HtmlAttributes;
+}
+
+<div @htmlAttributes>
+    
+    <br />
+
+    <div>
+        <table class=" sc-table sc-table-header table">
+            <thead>
+                <tr>
+                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="name" data-fieldsortorder="ASC">Card Name</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="description" data-fieldsortorder="ASC">Card Description</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="updateddate" data-fieldsortorder="ASC">Card Updated Date</th>
+                    <th class="sc-table-head sortable">Card URL</th>
+                    <th class="sc-table-head sortable">Set As Done</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="sc-listcontrol-body">
+            <table class="sc-table table">
+                <tbody data-bind="foreach: InboxParam">
+                    <tr>
+                        <td class="ventilate">
+                            <span data-bind="text: Id"></span>
+                        </td>
+                        <td class="ventilate">
+                            <span data-bind="text: Name"></span>
+                        </td>
+                        <td class="ventilate">
+                            <span data-bind="text: Description"></span>
+                        </td>
+                        <td class="ventilate">
+                            <span data-bind="text: CardUpdatedDate"></span>
+                        </td>
+                        <td class="ventilate">
+                            <a data-bind="attr: { href: CardURL }" target="_blank">Go To Trello</a>
+                        </td>
+                        <td class="ventilate">
+                            <a data-bind="attr: { data-cardId: Id }" class="SetAsDone">Go To Trello</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <br />
+        </div>
+    </div>
