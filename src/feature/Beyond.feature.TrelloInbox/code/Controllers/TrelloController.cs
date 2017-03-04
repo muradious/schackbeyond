@@ -25,14 +25,14 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 		{
 			try
 			{
-				List<TrelloCardItem> result = GetCurrentUserInbox();
+				List<Card> result = GetCurrentUserInbox();
 
 				#region Sorting Logic 
 				switch (sortfield)
 				{
 					case "Id":
 						{
-							result = sortorder == "ASC" ? result.OrderBy(t => t.Id).ToList() : result.OrderByDescending(t => t.Id).ToList();
+							result = sortorder == "ASC" ? result.OrderBy(t => t.ID).ToList() : result.OrderByDescending(t => t.ID).ToList();
 							break;
 						}
 					case "name":
@@ -42,17 +42,17 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 						}
 					case "description":
 						{
-							result = sortorder == "ASC" ? result.OrderBy(t => t.Description).ToList() : result.OrderByDescending(t => t.Description).ToList();
+							result = sortorder == "ASC" ? result.OrderBy(t => t.Desc).ToList() : result.OrderByDescending(t => t.Desc).ToList();
 							break;
 						}
 					case "updateddate":
 						{
-							result = sortorder == "ASC" ? result.OrderBy(t => t.CardUpdatedDate).ToList() : result.OrderByDescending(t => t.CardUpdatedDate).ToList();
+							result = sortorder == "ASC" ? result.OrderBy(t => t.Date).ToList() : result.OrderByDescending(t => t.Date).ToList();
 							break;
 						}
 					default:
 						{
-							result = sortorder == "ASC" ? result.OrderBy(t => t.CardUpdatedDate).ToList() : result.OrderByDescending(t => t.CardUpdatedDate).ToList();
+							result = sortorder == "ASC" ? result.OrderBy(t => t.Date).ToList() : result.OrderByDescending(t => t.Date).ToList();
 							break;
 						}
 				}
@@ -63,7 +63,7 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 			catch (Exception ex)
 			{
 				Sitecore.Diagnostics.Error.LogError(ex.Message);
-				return Json(new List<TrelloCardItem>(), JsonRequestBehavior.AllowGet);
+				return Json(new List<Card>(), JsonRequestBehavior.AllowGet);
 			}
 		}
 
@@ -71,10 +71,10 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 		/// Method that get the current user Inbox
 		/// </summary>
 		/// <returns></returns>
-		private List<TrelloCardItem> GetCurrentUserInbox()
+		private List<Card> GetCurrentUserInbox()
 		{
 			Database masterDB = Factory.GetDatabase(DBNames.masterDB);
-			List<TrelloCardItem> _trelloCardItem = new List<TrelloCardItem>();
+			List<Card> _trelloCardItem = new List<Card>();
 			if (masterDB != null)
 			{
 				//Get all Card Sitecore items
@@ -86,13 +86,13 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 				{
 					foreach (var item in allTrelloItem)
 					{
-						_trelloCardItem.Add(new TrelloCardItem
+						_trelloCardItem.Add(new Card
 						{
-							Id = item.Fields[FieldsNames.TrtelloCardName.CardId].Value,
+							ID = item.Fields[FieldsNames.TrtelloCardName.CardId].Value,
 							Name = item.Fields[FieldsNames.TrtelloCardName.CardName].Value,
-							Description = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value,
-							CardUpdatedDate = item.Fields[FieldsNames.TrtelloCardName.CardUpdatedDate].Value,
-							CardURL = item.Fields[FieldsNames.TrtelloCardName.CardURL].Value
+							Desc = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value,
+							Date = item.Fields[FieldsNames.TrtelloCardName.CardUpdatedDate].Value,
+							URL = item.Fields[FieldsNames.TrtelloCardName.CardURL].Value
 						});
 					}
 				}
