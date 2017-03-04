@@ -20,7 +20,7 @@
         <table class="sc-table sc-table-header table">
             <thead>
                 <tr>
-                    <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer; display:none" data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
                     <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="name" data-fieldsortorder="ASC">Card Name</th>
                     <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="description" data-fieldsortorder="ASC">Description</th>
                     <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="updateddate" data-fieldsortorder="ASC">Updated DateTime</th>
@@ -33,7 +33,7 @@
             <table class="sc-table table">
                 <tbody data-bind="foreach: InboxParam">
                     <tr data-bind="attr: { title: Desc }">
-                        <td class="ventilate">
+                        <td class="ventilate" style="display:none">
                             <span data-bind="text: ID"></span>
                         </td>
                         <td class="ventilate">
