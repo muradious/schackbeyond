@@ -11,19 +11,33 @@ using TrelloConnector.Interfaces;
 
 namespace TrelloConnector
 {
-    public class TrelloHelper
+    public static class TrelloHelper
     {
-        public ITrello trello;
-        public IEnumerable<ICardCollection> GetTrelloItems(ApiModel searchModel)
+        /// <summary>
+        /// initializing the connection with Trello using the App key and the user token
+        /// </summary>
+        /// <param name="trello"></param>
+        /// <param name="apiKey"></param>
+        /// <param name="token"></param>
+        public static void InitializeTrello(this ITrello trello, string apiKey, string token)
         {
-            //initializing the connection with Trello using the App key and the user token
+            trello = new Trello(apiKey); // Application API Key
+            trello.Authorize(token); // User Token
+        }
+
+        /// <summary>
+        /// Retrieve All Cards from a certain list in a predefined board
+        /// </summary>
+        /// <param name="trello"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public static IEnumerable<ICardCollection> GetTrelloItems(this ITrello trello, ApiModel searchModel)
+        {            
             try
             {
-                trello = new Trello(searchModel.ApiKey);
-                trello.Authorize(searchModel.Token);
                 Board mainBoard = trello.Boards.ForMe().DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.BoardName);
                 TrelloNet.List toDoList = trello.Lists.ForBoard(mainBoard).DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.ToDoListName);
-                return GetCards(trello.Cards.ForList(toDoList));
+                return GetCards(trello,trello.Cards.ForList(toDoList));
             }
             catch (Exception ex)
             {
@@ -32,7 +46,7 @@ namespace TrelloConnector
             }
         }
 
-        public IEnumerable<ICardCollection> GetCards(IEnumerable<TrelloNet.Card> cards)
+        public static IEnumerable<ICardCollection> GetCards(ITrello trello, IEnumerable<TrelloNet.Card> cards)
         {
             List<CardCollection> result = new List<CardCollection>();
             try
@@ -66,6 +80,26 @@ namespace TrelloConnector
                 Sitecore.Diagnostics.Log.Error("Error in Getting Card related data Details:\n"+ex.Message,ex);
             }
             return result;
+        }
+
+        /// <summary>
+        /// Update a certain Trello Cards status to done
+        /// </summary>
+        /// <param name="trello"></param>
+        /// <param name="searchModel"></param>
+        public static void SetCardAsDone(this ITrello trello, CardSearch searchModel)
+        {
+            try
+            {                
+                Board mainBoard = trello.Boards.ForMe()?.FirstOrDefault(x => x.Name == searchModel.BoardName);
+                TrelloNet.List doneList = trello.Lists.ForBoard(mainBoard)?.FirstOrDefault(x => x.Name == searchModel.DoneListName);
+                Card targetCard = trello.Cards.WithId(searchModel.CardID);
+                trello.Cards.Move(targetCard, doneList);
+            }
+            catch (Exception ex)
+            {
+                Sitecore.Diagnostics.Log.Error("Error setting Trello card as done Details:\n" + ex.Message, ex);
+            }
         }
 
     }

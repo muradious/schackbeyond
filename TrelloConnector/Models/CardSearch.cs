@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TrelloConnector.Models
 {
-    public class ApiModel
+    public class CardSearch
     {
         public string BoardName { get; set; }
-        public string ToDoListName { get; set; }
+        public string DoneListName { get; set; }
+        public string CardID { get; set; }
     }
 }

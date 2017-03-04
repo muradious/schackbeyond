@@ -59,6 +59,7 @@
     <Compile Include="Interfaces\IMemberData.cs" />
     <Compile Include="Models\ApiModel.cs" />
     <Compile Include="Models\CardCollection.cs" />
+    <Compile Include="Models\CardSearch.cs" />
     <Compile Include="Models\MemberData.cs" />
     <Compile Include="TrelloHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
