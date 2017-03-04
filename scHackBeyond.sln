@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{40695638-2CA3-4A01-85A1-FE4CF2169BF5}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{92612162-3EC7-4529-8B34-EF1057A9B387}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.SitecoreExtensions", "src\foundation\SitecoreExtensions\Beyond.foundation.SitecoreExtensions\Beyond.foundation.SitecoreExtensions.csproj", "{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.TrelloProvider", "src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.foundation.TrelloProvider.csproj", "{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B06F05D9-CAC8-4DBD-9170-7DC7874929D2} = {40695638-2CA3-4A01-85A1-FE4CF2169BF5}
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
 	EndGlobalSection
 EndGlobal

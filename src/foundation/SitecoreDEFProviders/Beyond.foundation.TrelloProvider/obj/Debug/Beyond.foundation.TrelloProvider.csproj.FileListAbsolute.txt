@@ -1,0 +1,5 @@
+C:\Users\mohammad.TANASUK\Documents\Hackathon2017\schackbeyond\src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\bin\Debug\Beyond.foundation.TrelloProvider.dll
+C:\Users\mohammad.TANASUK\Documents\Hackathon2017\schackbeyond\src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\bin\Debug\Beyond.foundation.TrelloProvider.pdb
+C:\Users\mohammad.TANASUK\Documents\Hackathon2017\schackbeyond\src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\obj\Debug\Beyond.foundation.TrelloProvider.csprojResolveAssemblyReference.cache
+C:\Users\mohammad.TANASUK\Documents\Hackathon2017\schackbeyond\src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\obj\Debug\Beyond.foundation.TrelloProvider.dll
+C:\Users\mohammad.TANASUK\Documents\Hackathon2017\schackbeyond\src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\obj\Debug\Beyond.foundation.TrelloProvider.pdb
