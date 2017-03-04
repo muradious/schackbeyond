@@ -60,28 +60,6 @@ define(["sitecore", "blockUI"], function (Sitecore, blockUI) {
                 });
             });
         }
-        ,
-        SetAsDone: function (app) {
-            var app = this;
-            $(document).ready(function () {
-                $('.SetAsDone').click(function () {
-                    var cardId = $(this).data("cardId");
-                    jQuery.ajax({
-                        type: "GET",
-                        dataType: "json",
-                        data: { 'cardId': cardId },
-                        url: "/api/sitecore/Trello/getUserTrelloInbox",
-                        cache: false,
-                        success: function (data) {
-                            app.GetTrelloInbox(app, 'updateddate', 'DESC');
-                        },
-                        error: function () {
-                            console.log("There was an error in GetTrelloInbox() function!");
-                        }
-                    });
-                });
-            });
-        }
     });
 
     var view = Sitecore.Definitions.Views.ControlView.extend({

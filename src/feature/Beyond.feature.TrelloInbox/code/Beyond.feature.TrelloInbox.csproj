@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Global.asax" />
+    <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Helper.js" />
     <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Inbox.js" />
     <Content Include="Sitecore\shell\client\Your Apps\TrelloInbox\Inbox.test.js" />
     <None Include="Web.config" />

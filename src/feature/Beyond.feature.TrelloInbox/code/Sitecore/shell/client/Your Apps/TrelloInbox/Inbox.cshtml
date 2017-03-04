@@ -11,19 +11,19 @@
     rendering.GetString("InboxParam", "InboxParam");
     var htmlAttributes = rendering.HtmlAttributes;
 }
-
+<script src="~/Sitecore/shell/client/Your Apps/TrelloInbox/Helper.js"></script>
 <div @htmlAttributes>
-    
+
     <br />
 
     <div>
         <table class=" sc-table sc-table-header table">
             <thead>
                 <tr>
-                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
-                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="name" data-fieldsortorder="ASC">Card Name</th>
-                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="description" data-fieldsortorder="ASC">Card Description</th>
-                    <th class="sc-table-head sortable" style="cursor: pointer;"  data-fieldname="updateddate" data-fieldsortorder="ASC">Card Updated Date</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="name" data-fieldsortorder="ASC">Card Name</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="description" data-fieldsortorder="ASC">Card Description</th>
+                    <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="updateddate" data-fieldsortorder="ASC">Card Updated Date</th>
                     <th class="sc-table-head sortable">Card URL</th>
                     <th class="sc-table-head sortable">Set As Done</th>
                 </tr>
@@ -49,7 +49,7 @@
                             <a data-bind="attr: { href: CardURL }" target="_blank">Go To Trello</a>
                         </td>
                         <td class="ventilate">
-                            <a data-bind="attr: { data-cardId: Id }" class="SetAsDone">Set As Done</a>
+                            <a data-bind="attr: {cardId:Id}" style="cursor: pointer;" class="setasdone" onclick="SetAsDone()">Set As Done</a>
                         </td>
                     </tr>
                 </tbody>

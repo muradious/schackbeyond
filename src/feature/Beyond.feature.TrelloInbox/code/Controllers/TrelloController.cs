@@ -100,7 +100,7 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
             return _trelloCardItem;
         }
 
-        public void SetCardAsDone(string cardId)
+        public ActionResult SetCardAsDone(string cardId)
         {
             try
             {
@@ -119,7 +119,8 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
                         ApiKey = apiKey,
                         Token = token,
                         BoardName = board,
-                        DoneListName = doneListName
+                        DoneListName = doneListName,
+                        CardID = cardId
                     });
 
                     // Delete Sitecore Item 
@@ -137,6 +138,8 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
             {
                 Sitecore.Diagnostics.Error.LogError(ex.Message);
             }
+
+            return Json(new object(), JsonRequestBehavior.AllowGet);
         }
     }
 }
