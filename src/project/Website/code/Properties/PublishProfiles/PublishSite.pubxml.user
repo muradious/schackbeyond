@@ -12,16 +12,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2017 06:04:14</publishTime>
     </File>
     <File Include="bin/Beyond.feature.TrelloProvider.dll">
-      <publishTime>03/04/2017 12:08:13</publishTime>
+      <publishTime>03/04/2017 13:45:23</publishTime>
     </File>
     <File Include="bin/Beyond.feature.TrelloProvider.pdb">
-      <publishTime>03/04/2017 12:08:13</publishTime>
+      <publishTime>03/04/2017 13:45:23</publishTime>
     </File>
     <File Include="bin/Beyond.foundation.SitecoreExtensions.dll">
-      <publishTime>03/04/2017 12:05:32</publishTime>
+      <publishTime>03/04/2017 13:34:09</publishTime>
     </File>
     <File Include="bin/Beyond.foundation.SitecoreExtensions.pdb">
-      <publishTime>03/04/2017 12:05:32</publishTime>
+      <publishTime>03/04/2017 13:34:09</publishTime>
     </File>
     <File Include="bin/Beyond.foundation.TrelloProvider.dll">
       <publishTime>03/04/2017 09:19:40</publishTime>
@@ -31,6 +31,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>03/04/2017 01:03:26</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/04/2017 12:49:02</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>03/04/2017 05:30:19</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>03/04/2017 01:03:28</publishTime>
@@ -69,16 +75,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2017 01:03:30</publishTime>
     </File>
     <File Include="bin/scHackBeyond.dll">
-      <publishTime>03/04/2017 12:08:14</publishTime>
+      <publishTime>03/04/2017 13:45:24</publishTime>
     </File>
     <File Include="bin/scHackBeyond.pdb">
-      <publishTime>03/04/2017 12:08:14</publishTime>
+      <publishTime>03/04/2017 13:45:24</publishTime>
     </File>
     <File Include="bin/Sitecore.DataExchange.DataAccess.dll">
       <publishTime>03/04/2017 06:06:16</publishTime>
     </File>
     <File Include="bin/Sitecore.DataExchange.dll">
       <publishTime>03/04/2017 05:30:04</publishTime>
+    </File>
+    <File Include="bin/Sitecore.Kernel.dll">
+      <publishTime>12/21/2016 12:35:44</publishTime>
     </File>
     <File Include="bin/Sitecore.Services.Core.dll">
       <publishTime>03/04/2017 05:30:04</publishTime>
@@ -102,19 +111,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2017 01:03:25</publishTime>
     </File>
     <File Include="bin/TrelloConnector.dll">
-      <publishTime>03/04/2017 12:05:29</publishTime>
+      <publishTime>03/04/2017 13:45:23</publishTime>
     </File>
     <File Include="bin/TrelloConnector.pdb">
-      <publishTime>03/04/2017 12:05:29</publishTime>
+      <publishTime>03/04/2017 13:45:23</publishTime>
+    </File>
+    <File Include="bin/TrelloNet.dll">
+      <publishTime>03/04/2017 05:30:15</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>12/21/2016 11:04:32</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/04/2017 12:46:25</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>03/04/2017 01:03:23</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/21/2016 11:15:58</publishTime>
+      <publishTime>03/04/2017 13:06:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

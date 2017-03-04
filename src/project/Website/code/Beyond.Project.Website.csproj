@@ -48,6 +48,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -104,6 +108,7 @@
     <Content Include="App_Config\ConnectionStrings.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\PublishSite.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -116,19 +121,16 @@
     <Folder Include="App_Config\Include\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\TrelloConnector\Beyond.foundation.TrelloConnector.csproj">
       <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
       <Name>TrelloConnector</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.feature.TrelloProvider.csproj">
+    <ProjectReference Include="..\..\..\feature\Beyond.feature.TrelloProvider\code\Beyond.feature.TrelloProvider.csproj">
       <Project>{4721ffe1-bec2-4a59-8830-b0df3501d37a}</Project>
       <Name>Beyond.feature.TrelloProvider</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\foundation\SitecoreExtensions\Beyond.foundation.SitecoreExtensions\Beyond.foundation.SitecoreExtensions.csproj">
-      <Project>{91c08408-e7b1-4aa5-b3b8-a7cc8b823a24}</Project>
-      <Name>Beyond.foundation.SitecoreExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

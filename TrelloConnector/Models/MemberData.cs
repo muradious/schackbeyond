@@ -7,10 +7,9 @@ using TrelloConnector.Interfaces;
 
 namespace TrelloConnector.Models
 {
-    public class MemberData:IMemberData
-    {
-        public string MemberID { get; set; }
-        public string MemberName { get; set; }
-
-    }
+	public class MemberData : IMemberData
+	{
+		public string MemberID { get; set; }
+		public string MemberName { get; set; }
+	}
 }

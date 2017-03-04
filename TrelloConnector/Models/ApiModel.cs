@@ -10,5 +10,7 @@ namespace TrelloConnector.Models
     {
         public string BoardName { get; set; }
         public string ToDoListName { get; set; }
+        public string ApiKey { get; set; }
+        public string Token { get; set; }
     }
 }
