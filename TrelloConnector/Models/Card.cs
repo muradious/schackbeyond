@@ -1,7 +1,7 @@
 ﻿using System;
-using TrelloConnector.Interfaces;
+using Beyond.foundation.TrelloConnector.Interfaces;
 
-namespace TrelloConnector.Models
+namespace Beyond.foundation.TrelloConnector.Models
 {
 	public class Card : ICard
 	{

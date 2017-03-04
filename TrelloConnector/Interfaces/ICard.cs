@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TrelloConnector.Interfaces
+namespace Beyond.foundation.TrelloConnector.Interfaces
 {
 	public interface ICard
     {

@@ -103,16 +103,11 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constants\DBNames.cs" />
     <Compile Include="Constants\FieldsNames.cs" />
     <Compile Include="Constants\IDs.cs" />
     <Compile Include="Constants\TemplatesIDs.cs" />
     <Compile Include="Controllers\TrelloController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TrelloCardItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

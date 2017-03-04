@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Beyond.feature.TrelloProvider</RootNamespace>
     <AssemblyName>Beyond.feature.TrelloProvider</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -56,7 +56,6 @@
     <Compile Include="Converters\Endpoints\TrelloEndpointConverter.cs" />
     <Compile Include="Converters\PipelineSteps\GetCardsFromTrelloStepConverter.cs" />
     <Compile Include="Helpers\Extensions.cs" />
-    <Compile Include="Models\ItemModels\DataAccess\ListValueAccessorItemModel.cs" />
     <Compile Include="Models\ItemModels\Endpoints\TrelloEndpointItemModel.cs" />
     <Compile Include="Models\ItemModels\GetCardsFromTrelloStepItemModel.cs" />
     <Compile Include="Plugins\TrelloEndpointSettings.cs" />
