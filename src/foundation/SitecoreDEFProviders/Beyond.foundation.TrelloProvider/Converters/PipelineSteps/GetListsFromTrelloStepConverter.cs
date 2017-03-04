@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Repositories;
 using Sitecore.DataExchange.Plugins;
-using Beyond.foundation.TrelloProvider.Models.ItemModels;
+using Beyond.feature.TrelloProvider.Models.ItemModels;
 
-namespace Beyond.foundation.TrelloProvider.Converters.PipelineSteps
+namespace Beyond.feature.TrelloProvider.Converters.PipelineSteps
 {
 	public class GetListsFromTrelloStepConverter : BasePipelineStepConverter<ItemModel>
 	{

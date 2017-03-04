@@ -51,10 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Converters\Endpoints\TrelloEndpointConverter.cs" />
     <Compile Include="Converters\PipelineSteps\GetListsFromTrelloStepConverter.cs" />
     <Compile Include="Converters\PipelineSteps\GetCardsFromTrelloStepConverter.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Models\ItemModels\Endpoints\TrelloEndpointItemModel.cs" />
     <Compile Include="Models\ItemModels\GetListsFromTrelloStepItemModel.cs" />
     <Compile Include="Models\ItemModels\GetCardsFromTrelloStepItemModel.cs" />
+    <Compile Include="Plugins\TrelloEndpointSettings.cs" />
     <Compile Include="Processors\PipelineSteps\GetListsFromTrelloSetProcessor.cs" />
     <Compile Include="Processors\PipelineSteps\GetCardsFromTrelloSetProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

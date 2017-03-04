@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beyond.foundation.TrelloProvider
+namespace Beyond.feature.TrelloProvider
 {
     public class Class1
     {

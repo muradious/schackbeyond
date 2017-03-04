@@ -8,7 +8,7 @@ using Sitecore.DataExchange.Contexts;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Plugins;
 
-namespace Beyond.foundation.TrelloProvider.Processors.PipelineSteps
+namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 {
 	public class GetListsFromTrelloSetProcessor : BaseReadDataStepProcessor
 	{

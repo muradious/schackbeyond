@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beyond.foundation.TrelloProvider.Models.ItemModels
+namespace Beyond.feature.TrelloProvider.Models.ItemModels
 {
 	public class GetListsFromTrelloStepItemModel: ItemModel
 	{

@@ -58,3 +58,4 @@ packages/
 *bin/
 *.dll
 */obj/
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/bin/Debug/Beyond.foundation.TrelloProvider.dll
