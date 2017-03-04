@@ -55,6 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ICardCollection.cs" />
+    <Compile Include="Interfaces\IMemberData.cs" />
+    <Compile Include="Models\ApiModel.cs" />
+    <Compile Include="Models\CardCollection.cs" />
+    <Compile Include="Models\MemberData.cs" />
     <Compile Include="TrelloHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Constants.cs" />
