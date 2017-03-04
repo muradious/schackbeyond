@@ -98,28 +98,31 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 			return _trelloCardItem;
 		}
 
-        public ActionResult SetCardAsDone(string cardId)
-        {
-            try
-            {
-                Database masterDB = Factory.GetDatabase(DBNames.masterDB);
-                if (masterDB != null)
-                {
-                    Sitecore.Data.Items.Item trelloConfigItem = masterDB.GetItem(IDs.trelloConfig);
-                    string apiKey = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AppKey].Value;
-                    string token = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AuthToken].Value;
-                    string board = trelloConfigItem.Fields[FieldsNames.TrelloSettings.BoardName].Value;
-                    string doneListName = trelloConfigItem.Fields[FieldsNames.TrelloSettings.DoneListName].Value;
+		/// <summary>
+		/// Sets the card as done by moving it to the Done list
+		/// </summary>
+		/// <param name="cardId">The card identifier.</param>
+		/// <returns></returns>
+		public ActionResult SetCardAsDone(string cardId)
+		{
+			try
+			{
+				Database masterDB = Factory.GetDatabase(DBNames.masterDB);
+				if (masterDB != null)
+				{
+					Sitecore.Data.Items.Item trelloConfigItem = masterDB.GetItem(IDs.trelloConfig);
+					string apiKey = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AppKey].Value;
+					string token = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AuthToken].Value;
+					string board = trelloConfigItem.Fields[FieldsNames.TrelloSettings.BoardName].Value;
+					string doneListName = trelloConfigItem.Fields[FieldsNames.TrelloSettings.DoneListName].Value;
 
-                    TrelloContext trelloContext = new TrelloContext();
-                    trelloContext.SetCardAsDone(new TrelloConnector.Models.CardSearch()
-                    {
-                        ApiKey = apiKey,
-                        Token = token,
-                        BoardName = board,
-                        DoneListName = doneListName,
-                        CardID = cardId
-                    });
+					var apiModel = new ApiModel()
+					{
+						ApiKey = apiKey,
+						Token = token,
+						BoardName = board,
+						DoneListName = doneListName
+					};
 
 					//Prepare Trello context
 					TrelloContext trelloContext = new TrelloContext(apiModel);
@@ -134,16 +137,17 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 							.Where(t => t.Fields[FieldsNames.TrtelloCardName.CardMembers].Value.Contains(Sitecore.Context.User.Profile[FieldsNames.UserProfileFields.TrelloMemberName]))
 							.Where(t => t.Fields[FieldsNames.TrtelloCardName.CardId].Value == cardId).FirstOrDefault();
 
-                    if (cardToDelete != null)
-                        cardToDelete.Recycle();
-                }
-            }
-            catch (Exception ex)
-            {
-                Sitecore.Diagnostics.Error.LogError(ex.Message);
-            }
+						if (cardToDelete != null)
+							cardToDelete.Recycle();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Sitecore.Diagnostics.Error.LogError(ex.Message);
+			}
 
-            return Json(new object(), JsonRequestBehavior.AllowGet);
-        }
-    }
+			return Json(new object(), JsonRequestBehavior.AllowGet);
+		}
+	}
 }
