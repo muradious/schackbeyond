@@ -8,6 +8,7 @@ using Sitecore.Configuration;
 using Sitecore.Data;
 using Beyond.feature.TrelloInbox.Constants;
 using Beyond.feature.TrelloInbox.Models;
+using TrelloConnector;
 
 namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 {
@@ -99,13 +100,38 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
             return _trelloCardItem;
         }
 
-        public void SetCardAsDone(string sortfield, string sortorder)
+        public void SetCardAsDone(string cardId)
         {
             try
             {
-                
+                Database masterDB = Factory.GetDatabase(DBNames.masterDB);
+                if (masterDB != null)
+                {
+                    Sitecore.Data.Items.Item trelloConfigItem = masterDB.GetItem(IDs.trelloConfig);
+                    string apiKey = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AppKey].Value;
+                    string token = trelloConfigItem.Fields[FieldsNames.TrelloSettings.AuthToken].Value;
+                    string board = trelloConfigItem.Fields[FieldsNames.TrelloSettings.BoardName].Value;
+                    string doneListName = trelloConfigItem.Fields[FieldsNames.TrelloSettings.DoneListName].Value;
 
-                
+                    TrelloContext trelloContext = new TrelloContext();
+                    trelloContext.SetCardAsDone(new TrelloConnector.Models.CardSearch()
+                    {
+                        ApiKey = apiKey,
+                        Token = token,
+                        BoardName = board,
+                        DoneListName = doneListName
+                    });
+
+                    // Delete Sitecore Item 
+
+                    Sitecore.Data.Items.Item cardToDelete = masterDB.GetItem(IDs.TrelloDataFolderId).Axes.GetDescendants()
+                        .Where(t => t.TemplateID == TemplatesIDs.TrelloCardItemTemplateId)
+                        .Where(t => t.Fields[FieldsNames.TrtelloCardName.CardMembers].Value.Contains(Sitecore.Context.User.Profile[FieldsNames.UserProfileFields.TrelloMemberName]))
+                        .Where(t=>t.Fields[FieldsNames.TrtelloCardName.CardId].Value == cardId).FirstOrDefault();
+
+                    if (cardToDelete != null)
+                        cardToDelete.Recycle();
+                }
             }
             catch (Exception ex)
             {

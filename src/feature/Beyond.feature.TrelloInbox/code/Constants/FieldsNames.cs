@@ -21,5 +21,13 @@ namespace Beyond.feature.TrelloInbox.Constants
         {
             internal static string TrelloMemberName = "Trello Member Username";
         }
+
+        internal static class TrelloSettings
+        {
+            internal static string AppKey = "App Key";
+            internal static string AuthToken = "AuthToken";
+            internal static string BoardName = "Board Name";
+            internal static string DoneListName = "Done List Name";
+        }
     }
 }
