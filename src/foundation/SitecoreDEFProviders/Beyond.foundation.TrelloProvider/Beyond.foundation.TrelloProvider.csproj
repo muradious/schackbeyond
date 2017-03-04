@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Beyond.foundation.TrelloProvider</RootNamespace>
     <AssemblyName>Beyond.foundation.TrelloProvider</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,7 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Converters\PipelineSteps\GetListsFromTrelloStepConverter.cs" />
+    <Compile Include="Converters\PipelineSteps\GetCardsFromTrelloStepConverter.cs" />
+    <Compile Include="Models\ItemModels\GetListsFromTrelloStepItemModel.cs" />
+    <Compile Include="Models\ItemModels\GetCardsFromTrelloStepItemModel.cs" />
+    <Compile Include="Processors\PipelineSteps\GetListsFromTrelloSetProcessor.cs" />
+    <Compile Include="Processors\PipelineSteps\GetCardsFromTrelloSetProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\TrelloConnector\TrelloConnector.csproj">
+      <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
+      <Name>TrelloConnector</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
