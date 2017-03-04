@@ -49,6 +49,7 @@ namespace TrelloConnector
 							members.Add(new MemberData { MemberID = memberID, MemberName = _trello.Members.WithId(memberID)?.Username });
 						}
 
+						//Map cards into a local format
 						result.Add(new Models.Card
 						{
 							ID = card.Id,
@@ -71,7 +72,6 @@ namespace TrelloConnector
 		/// <summary>
 		/// Update a certain Trello Cards status to done
 		/// </summary>
-		/// <param name="trello"></param>
 		/// <param name="searchModel"></param>
 		public void SetCardAsDone(CardSearch searchModel)
 		{
