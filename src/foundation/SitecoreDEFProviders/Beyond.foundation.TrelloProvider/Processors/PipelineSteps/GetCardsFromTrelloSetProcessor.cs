@@ -15,14 +15,6 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 {
 	public class GetCardsFromTrelloSetProcessor : Sitecore.DataExchange.Processors.PipelineSteps.BaseReadDataStepProcessor
 	{
-		protected override bool IsEndpointValid(Endpoint endpoint, PipelineStep pipelineStep, PipelineContext pipelineContext)
-		{
-			return base.IsEndpointValid(endpoint, pipelineStep, pipelineContext);
-		}
-		protected override bool AreRequiredPluginsSet(PipelineStep pipelineStep, PipelineContext pipelineContext)
-		{
-			return base.AreRequiredPluginsSet(pipelineStep, pipelineContext);
-		}
 		protected override void ReadData(Endpoint endpoint, PipelineStep pipelineStep, PipelineContext pipelineContext)
 		{
 			if (endpoint == null)
@@ -45,10 +37,11 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 				return;
 			}
 
-			TrelloHelper trello = new TrelloHelper();
+			TrelloContext trello = new TrelloContext();
 			var cards = trello.GetTrelloItems(new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName });
 
 			var itemsSettings = new IterableDataSettings(cards);
+
 			logger.Info($"{cards.Count} cards were read from Trello ({settings.AppName}, {settings.AppKey}, {settings.BoardName}, {settings.ToDoListName})");
 
 			//add the plugin to the pipeline context
@@ -56,11 +49,11 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 		}
 	}
 
-	public class GetCardsFromTrelloSetProcessor1 : Sitecore.DataExchange.Processors.Pipelines.PipelineProcessor
-	{
-		public override void Process(Pipeline pipeline, PipelineContext pipelineContext)
-		{
-			base.Process(pipeline, pipelineContext);
-		}
-	}
+	//public class GetCardsFromTrelloSetProcessor1 : Sitecore.DataExchange.Processors.Pipelines.PipelineProcessor
+	//{
+	//	public override void Process(Pipeline pipeline, PipelineContext pipelineContext)
+	//	{
+	//		base.Process(pipeline, pipelineContext);
+	//	}
+	//}
 }
