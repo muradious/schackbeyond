@@ -106,7 +106,6 @@
     <Compile Include="Constants\IDs.cs" />
     <Compile Include="Constants\TemplatesIDs.cs" />
     <Compile Include="Controllers\TrelloController.cs" />
-    <Compile Include="Models\TrelloCardItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

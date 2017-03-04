@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
 using Sitecore.Configuration;
 using Sitecore.Data;
 using Beyond.feature.TrelloInbox.Constants;
-using Beyond.feature.TrelloInbox.Models;
 using Beyond.foundation.TrelloConnector.Models;
 using Beyond.foundation.TrelloConnector;
 
