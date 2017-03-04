@@ -128,6 +128,10 @@
       <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
       <Name>TrelloConnector</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\feature\Beyond.feature.TrelloInbox\code\Beyond.feature.TrelloInbox.csproj">
+      <Project>{f6b5c985-5e8e-4f02-90da-ad68fea16e28}</Project>
+      <Name>Beyond.feature.TrelloInbox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\feature\Beyond.feature.TrelloProvider\code\Beyond.feature.TrelloProvider.csproj">
       <Project>{4721ffe1-bec2-4a59-8830-b0df3501d37a}</Project>
       <Name>Beyond.feature.TrelloProvider</Name>

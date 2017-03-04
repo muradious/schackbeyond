@@ -77,7 +77,7 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 				//Get all Card Sitecore items
 				List<Sitecore.Data.Items.Item> allTrelloItem = masterDB.GetItem(IDs.TrelloDataFolderId).Axes.GetDescendants()
 					.Where(t => t.TemplateID == TemplatesIDs.TrelloCardItemTemplateId)
-					.Where(t => t.Fields[FieldsNames.TrtelloCardName.CardMembers].Value.Contains(Sitecore.Context.User.Profile[FieldsNames.UserProfileFields.TrelloMemberName])).ToList();
+					.Where(t => t.Fields[FieldsNames.TrtelloCardName.CardMembers].Value.ToLower().Split('|').Contains(Sitecore.Context.User.Profile[FieldsNames.UserProfileFields.TrelloMemberName].ToLower())).ToList();
 
 				if (allTrelloItem != null && allTrelloItem.Count() > 0)
 				{
@@ -87,8 +87,8 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 						{
 							ID = item.Fields[FieldsNames.TrtelloCardName.CardId].Value,
 							Name = item.Fields[FieldsNames.TrtelloCardName.CardName].Value,
-							Desc = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value.Substring(0,100),
-							Date = item.Fields[FieldsNames.TrtelloCardName.CardUpdatedDate].Value,
+							Desc = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value,
+							Date = Sitecore.DateUtil.IsoDateToDateTime(item.Fields[FieldsNames.TrtelloCardName.CardUpdatedDate].Value).ToString("yyyy-MM-dd HH:mm:ss"),
 							URL = item.Fields[FieldsNames.TrtelloCardName.CardURL].Value
 						});
 					}
