@@ -25,47 +25,34 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 		}
 		protected override void ReadData(Endpoint endpoint, PipelineStep pipelineStep, PipelineContext pipelineContext)
 		{
-			try
+			if (endpoint == null)
 			{
-				if (endpoint == null)
-				{
-					throw new ArgumentNullException(nameof(endpoint));
-				}
-				if (pipelineStep == null)
-				{
-					throw new ArgumentNullException(nameof(pipelineStep));
-				}
-				if (pipelineContext == null)
-				{
-					throw new ArgumentNullException(nameof(pipelineContext));
-				}
-
-				var logger = pipelineContext.PipelineBatchContext.Logger;
-				//
-				//get the file path from the plugin on the endpoint
-				var settings = endpoint.GetPlugin<TrelloEndpointSettings>();
-				//if (settings == null)
-				//{
-				//	return;
-				//}
-				TrelloHelper trello = new TrelloHelper();
-				trello.GetTrelloItems(new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName });
-
-				//TrelloConnector.TrelloHelper.
-				var lines = new List<string>();
-
-				var itemsSettings = new IterableDataSettings(lines);
-				logger.Info($"{lines.Count} cards were read from Trello ()");
-				//logger.Info("{0} rows were read from the file. (pipeline step: {1}, endpoint: {2})",
-				//				lines.Count, pipelineStep.Name, endpoint.Name);
-				//
-				//add the plugin to the pipeline context
-				pipelineContext.Plugins.Add(itemsSettings);
+				throw new ArgumentNullException(nameof(endpoint));
 			}
-			catch (Exception ex)
+			if (pipelineStep == null)
 			{
-
+				throw new ArgumentNullException(nameof(pipelineStep));
 			}
+			if (pipelineContext == null)
+			{
+				throw new ArgumentNullException(nameof(pipelineContext));
+			}
+
+			var logger = pipelineContext.PipelineBatchContext.Logger;
+			var settings = endpoint.GetPlugin<TrelloEndpointSettings>();
+			if (settings == null)
+			{
+				return;
+			}
+
+			TrelloHelper trello = new TrelloHelper();
+			var cards = trello.GetTrelloItems(new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName });
+
+			var itemsSettings = new IterableDataSettings(cards);
+			logger.Info($"{cards.Count} cards were read from Trello ({settings.AppName}, {settings.AppKey}, {settings.BoardName}, {settings.ToDoListName})");
+
+			//add the plugin to the pipeline context
+			pipelineContext.Plugins.Add(itemsSettings);
 		}
 	}
 
