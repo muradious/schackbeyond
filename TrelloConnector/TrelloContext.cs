@@ -53,7 +53,9 @@ namespace TrelloConnector
 						{
 							ID = card.Id,
 							Name = card.Name,
+							Date = Sitecore.DateUtil.ToIsoDate(card.DateLastActivity),
 							Desc = card.Desc,
+							URL = card.Url,
 							Members = string.Join("|", members.Select(s => s.MemberName))
 						});
 					}

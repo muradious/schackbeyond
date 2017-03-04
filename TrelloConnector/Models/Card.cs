@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TrelloConnector.Interfaces;
 
 namespace TrelloConnector.Models
@@ -12,6 +8,8 @@ namespace TrelloConnector.Models
 		public string ID { get; set; }
 		public string Name { get; set; }
 		public string Desc { get; set; }
+		public string Date { get; set; }
 		public string Members { get; set; }
+		public string URL { get; set; }
 	}
 }
