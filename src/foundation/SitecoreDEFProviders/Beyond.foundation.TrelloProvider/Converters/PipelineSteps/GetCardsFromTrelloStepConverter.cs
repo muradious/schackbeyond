@@ -16,7 +16,7 @@ namespace Beyond.feature.TrelloProvider.Converters.PipelineSteps
 	{
 		private static readonly Guid TemplateId = Guid.Parse("{DC27AC8C-AA22-4419-8141-02C32BBF4ACA}");
 		public GetCardsFromTrelloStepConverter(IItemModelRepository repository) : base(repository)
-        {
+		{
 			this.SupportedTemplateIds.Add(TemplateId);
 		}
 
@@ -27,13 +27,20 @@ namespace Beyond.feature.TrelloProvider.Converters.PipelineSteps
 
 		private void AddEndpointSettings(ItemModel source, PipelineStep pipelineStep)
 		{
-			var settings = new EndpointSettings();
-			var endpointFrom = base.ConvertReferenceToModel<Endpoint>(source, GetCardsFromTrelloStepItemModel.EndpointFrom);
-			if (endpointFrom != null)
+			try
 			{
-				settings.EndpointFrom = endpointFrom;
+				var settings = new EndpointSettings();
+				var endpointFrom = base.ConvertReferenceToModel<Endpoint>(source, GetCardsFromTrelloStepItemModel.EndpointFrom);
+				if (endpointFrom != null)
+				{
+					settings.EndpointFrom = endpointFrom;
+				}
+				pipelineStep.Plugins.Add(settings);
 			}
-			pipelineStep.Plugins.Add(settings);
+			catch (Exception ex)
+			{
+
+			}
 		}
 	}
 }

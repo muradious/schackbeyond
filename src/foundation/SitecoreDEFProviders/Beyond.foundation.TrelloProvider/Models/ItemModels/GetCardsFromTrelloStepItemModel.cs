@@ -9,6 +9,6 @@ namespace Beyond.feature.TrelloProvider.Models.ItemModels
 {
 	public class GetCardsFromTrelloStepItemModel: ItemModel
 	{
-		public const string EndpointFrom = "Endpoint From";
+		public const string EndpointFrom = "EndpointFrom";
 	}
 }
