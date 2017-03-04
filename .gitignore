@@ -53,3 +53,7 @@ src/foundation/SitecoreExtensions/Beyond.foundation.SitecoreExtensions/bin/rosly
 *.exe
 *bin/
 *obj/
+packages/
+*bin/
+*bin/
+*.dll
