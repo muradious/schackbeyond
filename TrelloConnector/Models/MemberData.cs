@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TrelloConnector.Interfaces;
+using Beyond.foundation.TrelloConnector.Interfaces;
 
-namespace TrelloConnector.Models
+namespace Beyond.foundation.TrelloConnector.Models
 {
 	public class MemberData : IMemberData
 	{

@@ -1,15 +1,10 @@
-﻿using Sitecore.DataExchange.Processors.PipelineSteps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Sitecore.DataExchange.Contexts;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Plugins;
-using TrelloConnector;
-using TrelloConnector.Models;
 using Beyond.feature.TrelloProvider.Plugins;
+using Beyond.foundation.TrelloConnector.Models;
+using Beyond.foundation.TrelloConnector;
 
 namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 {
@@ -37,23 +32,17 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 				return;
 			}
 
-			TrelloContext trello = new TrelloContext();
-			var cards = trello.GetTrelloItems(new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName });
+			//Prepare the Trello API context
+			var apiModel = new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName };
+			TrelloContext trello = new TrelloContext(apiModel);
 
-			var itemsSettings = new IterableDataSettings(cards);
+			var cards = trello.GetTrelloItems();
 
 			logger.Info($"{cards.Count} cards were read from Trello ({settings.AppName}, {settings.AppKey}, {settings.BoardName}, {settings.ToDoListName})");
 
-			//add the plugin to the pipeline context
+			//Send the cards to the pipelineContext
+			var itemsSettings = new IterableDataSettings(cards);
 			pipelineContext.Plugins.Add(itemsSettings);
 		}
 	}
-
-	//public class GetCardsFromTrelloSetProcessor1 : Sitecore.DataExchange.Processors.Pipelines.PipelineProcessor
-	//{
-	//	public override void Process(Pipeline pipeline, PipelineContext pipelineContext)
-	//	{
-	//		base.Process(pipeline, pipelineContext);
-	//	}
-	//}
 }

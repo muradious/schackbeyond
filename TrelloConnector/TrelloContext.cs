@@ -1,33 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TrelloConnector.Interfaces;
-using TrelloConnector.Models;
+using Beyond.foundation.TrelloConnector.Interfaces;
+using Beyond.foundation.TrelloConnector.Models;
 using TrelloNet;
 
-namespace TrelloConnector
+namespace Beyond.foundation.TrelloConnector
 {
 	public class TrelloContext
 	{
 		private ITrello _trello;
+		private ApiModel _apiModel;
 
-        private Sitecore.Data.Database master = Sitecore.Configuration.Factory.GetDatabase("master");
+		public TrelloContext(ApiModel apiModel)
+		{
+			_apiModel = apiModel;
+			_trello = new Trello(_apiModel.ApiKey);
+			_trello.Authorize(_apiModel.Token);
+		}
         
-
 		/// <summary>
 		/// Retrieve All Cards from a certain list in a predefined board
 		/// </summary>
 		/// <param name="searchModel"></param>
 		/// <returns></returns>
-		public List<ICard> GetTrelloItems(ApiModel searchModel)
+		public List<ICard> GetTrelloItems()
 		{
 			List<ICard> result = new List<ICard>();
 			try
-			{
-                _trello = new Trello(searchModel.ApiKey);
-				_trello.Authorize(searchModel.Token);
-				Board mainBoard = _trello.Boards.ForMe().DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.BoardName);
-				TrelloNet.List toDoList = _trello.Lists.ForBoard(mainBoard).DefaultIfEmpty().FirstOrDefault(x => x.Name == searchModel.ToDoListName);
+			{                
+				//Get current board
+				Board mainBoard = _trello.Boards.ForMe().DefaultIfEmpty().FirstOrDefault(x => x.Name == _apiModel.BoardName);
+
+				//Get the To Do list
+				TrelloNet.List toDoList = _trello.Lists.ForBoard(mainBoard).DefaultIfEmpty().FirstOrDefault(x => x.Name == _apiModel.ToDoListName);
+
+				//Return the To Do list's cards
 				return GetCards(_trello.Cards.ForList(toDoList));
 			}
 			catch (Exception ex)
@@ -47,6 +55,7 @@ namespace TrelloConnector
 					foreach (TrelloNet.Card card in cards)
 					{
 						List<MemberData> members = new List<MemberData>();
+						//Get Card Members
 						foreach (string memberID in card.IdMembers)
 						{
 							members.Add(new MemberData { MemberID = memberID, MemberName = _trello.Members.WithId(memberID)?.Username });
@@ -76,24 +85,28 @@ namespace TrelloConnector
 		/// Update a certain Trello Cards status to done
 		/// </summary>
 		/// <param name="searchModel"></param>
-		public void SetCardAsDone(CardSearch searchModel)
+		public bool SetCardAsDone(string cardID)
 		{
 			try
 			{
-				_trello = new Trello(searchModel.ApiKey); //GetTrelloItem();
-                _trello.Authorize(searchModel.Token);
+				//Get the current board
+				Board mainBoard = _trello.Boards.ForMe()?.FirstOrDefault(x => x.Name == _apiModel.BoardName);
 
-				Board mainBoard = _trello.Boards.ForMe()?.FirstOrDefault(x => x.Name == searchModel.BoardName);
+				//Get the Done List by its name
+				TrelloNet.List doneList = _trello.Lists.ForBoard(mainBoard)?.FirstOrDefault(x => x.Name == _apiModel.DoneListName);
+				//Get target card by its ID
+				TrelloNet.Card targetCard = _trello.Cards.WithId(cardID);
 
-				TrelloNet.List doneList = _trello.Lists.ForBoard(mainBoard)?.FirstOrDefault(x => x.Name == searchModel.DoneListName);
-				TrelloNet.Card targetCard = _trello.Cards.WithId(searchModel.CardID);
-
+				//Move Card into Done List
 				_trello.Cards.Move(targetCard, doneList);
 			}
 			catch (Exception ex)
 			{
 				Sitecore.Diagnostics.Log.Error("Error setting Trello card as done Details:\n" + ex.Message, ex);
+				return false;
 			}
+
+			return true;
 		}
     }
 }

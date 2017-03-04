@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TrelloConnector.Models
+namespace Beyond.foundation.TrelloConnector.Models
 {
     public class CardSearch
     {
