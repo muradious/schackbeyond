@@ -17,7 +17,7 @@
     <br />
 
     <div>
-        <table class=" sc-table sc-table-header table">
+        <table class="sc-table sc-table-header table">
             <thead>
                 <tr>
                     <th class="sc-table-head sortable" style="cursor: pointer;" data-fieldname="Id" data-fieldsortorder="ASC">Card ID</th>
@@ -32,24 +32,24 @@
         <div class="sc-listcontrol-body">
             <table class="sc-table table">
                 <tbody data-bind="foreach: InboxParam">
-                    <tr>
+                    <tr data-bind="attr: { title: Desc }">
                         <td class="ventilate">
-                            <span data-bind="text: Id"></span>
+                            <span data-bind="text: ID"></span>
                         </td>
                         <td class="ventilate">
                             <span data-bind="text: Name"></span>
                         </td>
                         <td class="ventilate">
-                            <span data-bind="text: Description"></span>
+                            <span data-bind="text: Desc"></span>
                         </td>
                         <td class="ventilate">
-                            <span data-bind="text: CardUpdatedDate"></span>
+                            <span data-bind="text: Date"></span>
                         </td>
                         <td class="ventilate">
-                            <a data-bind="attr: { href: CardURL }" target="_blank">Go To Trello</a>
+                            <a data-bind="attr: { href: URL }" target="_blank">Go To Trello</a>
                         </td>
                         <td class="ventilate">
-                            <a data-bind="attr: {cardId:Id}" style="cursor: pointer;" class="setasdone" onclick="SetAsDone()">Set As Done</a>
+                            <a data-bind="attr: {cardId:ID}" style="cursor: pointer;" class="setasdone" onclick="SetAsDone()">Set As Done</a>
                         </td>
                     </tr>
                 </tbody>

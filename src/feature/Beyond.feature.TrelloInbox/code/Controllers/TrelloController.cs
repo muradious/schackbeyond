@@ -87,7 +87,7 @@ namespace Beyond.feature.TrelloInbox.Controllers.TrelloInbox
 						{
 							ID = item.Fields[FieldsNames.TrtelloCardName.CardId].Value,
 							Name = item.Fields[FieldsNames.TrtelloCardName.CardName].Value,
-							Desc = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value,
+							Desc = item.Fields[FieldsNames.TrtelloCardName.CardDescription].Value.Substring(0,100),
 							Date = item.Fields[FieldsNames.TrtelloCardName.CardUpdatedDate].Value,
 							URL = item.Fields[FieldsNames.TrtelloCardName.CardURL].Value
 						});
