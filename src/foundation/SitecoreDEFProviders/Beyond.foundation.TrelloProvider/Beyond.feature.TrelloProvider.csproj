@@ -67,7 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\TrelloConnector\TrelloConnector.csproj">
+    <ProjectReference Include="..\..\..\..\TrelloConnector\Beyond.foundation.TrelloConnector.csproj">
       <Project>{90f2c3a1-cac5-4e15-9bf8-f7b9d45aa3c3}</Project>
       <Name>TrelloConnector</Name>
     </ProjectReference>

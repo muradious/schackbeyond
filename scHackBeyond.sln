@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{926121
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.SitecoreExtensions", "src\foundation\SitecoreExtensions\Beyond.foundation.SitecoreExtensions\Beyond.foundation.SitecoreExtensions.csproj", "{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloConnector", "TrelloConnector\TrelloConnector.csproj", "{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.TrelloConnector", "TrelloConnector\Beyond.foundation.TrelloConnector.csproj", "{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.feature.TrelloProvider", "src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.feature.TrelloProvider.csproj", "{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}"
 EndProject
