@@ -121,6 +121,7 @@
     <Folder Include="App_Config\Include\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\TrelloConnector\Beyond.foundation.TrelloConnector.csproj">

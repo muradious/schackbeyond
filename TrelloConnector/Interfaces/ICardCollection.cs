@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TrelloConnector.Models;
-
-namespace TrelloConnector.Interfaces
+﻿namespace TrelloConnector.Interfaces
 {
-    public interface ICardCollection
+	public interface ICard
     {
         string ID { get; set; }
 
@@ -15,6 +8,6 @@ namespace TrelloConnector.Interfaces
 
         string Desc { get; set; }
 
-        List<MemberData> Members { get; set; }
+        string Members { get; set; }
     }
 }

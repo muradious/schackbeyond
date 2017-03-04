@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Sitecore.DataExchange.Contexts;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Plugins;
+using TrelloConnector;
+using TrelloConnector.Models;
+using Beyond.feature.TrelloProvider.Plugins;
 
 namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 {
@@ -40,11 +43,13 @@ namespace Beyond.feature.TrelloProvider.Processors.PipelineSteps
 				var logger = pipelineContext.PipelineBatchContext.Logger;
 				//
 				//get the file path from the plugin on the endpoint
-				//var settings = endpoint.GetTextFileSettings();
+				var settings = endpoint.GetPlugin<TrelloEndpointSettings>();
 				//if (settings == null)
 				//{
 				//	return;
 				//}
+				TrelloHelper trello = new TrelloHelper();
+				trello.GetTrelloItems(new ApiModel { ApiKey = settings.AppKey, BoardName = settings.BoardName, Token = settings.AuthToken, ToDoListName = settings.ToDoListName });
 
 				//TrelloConnector.TrelloHelper.
 				var lines = new List<string>();
