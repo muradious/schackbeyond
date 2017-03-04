@@ -53,3 +53,9 @@ src/foundation/SitecoreExtensions/Beyond.foundation.SitecoreExtensions/bin/rosly
 *.exe
 *bin/
 *obj/
+packages/
+*bin/
+*bin/
+*.dll
+*/obj/
+src/foundation/SitecoreDEFProviders/Beyond.foundation.TrelloProvider/bin/Debug/Beyond.foundation.TrelloProvider.dll

@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.SitecoreE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.TrelloConnector", "TrelloConnector\Beyond.foundation.TrelloConnector.csproj", "{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.foundation.TrelloProvider", "src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.foundation.TrelloProvider.csproj", "{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beyond.feature.TrelloProvider", "src\foundation\SitecoreDEFProviders\Beyond.foundation.TrelloProvider\Beyond.feature.TrelloProvider.csproj", "{4721FFE1-BEC2-4A59-8830-B0DF3501D37A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +49,6 @@ Global
 		{B06F05D9-CAC8-4DBD-9170-7DC7874929D2} = {40695638-2CA3-4A01-85A1-FE4CF2169BF5}
 		{91C08408-E7B1-4AA5-B3B8-A7CC8B823A24} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
 		{90F2C3A1-CAC5-4E15-9BF8-F7B9D45AA3C3} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
-		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A} = {87DB7DC2-1E93-4B6B-8426-F7AD9CC6DDD6}
+		{4721FFE1-BEC2-4A59-8830-B0DF3501D37A} = {74CD6839-1D22-4FBB-B3DF-E39C7902F2C3}
 	EndGlobalSection
 EndGlobal
